@@ -1,4 +1,18 @@
+.basket-container {
+    margin-top: 60px;
+}
+
 .basket-info {
     position: relative;
-    top: 20px;
+    top: 45%;
+    left: 5%;
+    font-size: 14px;
+}
+
+.basket-title {
+    position: relative;
+    top: 15px;
+    left: 5%;
+    font-size: 30px;
+    text-shadow: 0px 2.5px 2px grey;
 }

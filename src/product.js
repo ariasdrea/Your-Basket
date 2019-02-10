@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 // import { connect } from "react-redux";
-// import { Container, Row, Col } from "react-bootstrap";
-import Subtotal from "./subtotal";
+// import Subtotal from "./subtotal";
 import { Table, TableCell, TableRow, IconButton } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 import "./product.css";
@@ -36,6 +35,8 @@ export default class Product extends Component {
                     onChange={this.handleChange}
                     type="number"
                     placeholder="1"
+                    min="1"
+                    max="10"
                   />
                 </form>
               </TableCell>
@@ -45,7 +46,7 @@ export default class Product extends Component {
               </IconButton>
             </TableRow>
 
-            <TableRow>
+            <TableRow id="striped-row">
               <TableCell className="table-info">
                 Baseball Cap, One Size
               </TableCell>
@@ -57,6 +58,8 @@ export default class Product extends Component {
                     onChange={this.handleChange}
                     type="number"
                     placeholder="2"
+                    min="1"
+                    max="10"
                   />
                 </form>
               </TableCell>
@@ -76,6 +79,8 @@ export default class Product extends Component {
                     onChange={this.handleChange}
                     type="number"
                     placeholder="1"
+                    min="1"
+                    max="10"
                   />
                 </form>
               </TableCell>
@@ -83,6 +88,29 @@ export default class Product extends Component {
               <IconButton className="delete-icon" aria-label="Delete">
                 <DeleteIcon />
               </IconButton>
+            </TableRow>
+
+            <TableRow />
+
+            <TableRow>
+              <TableCell className="cost"> Subtotal </TableCell>
+              <TableCell> </TableCell>
+              <TableCell> </TableCell>
+              <TableCell className="cost">dynamic price</TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell className="cost">VAT @ 20% </TableCell>
+              <TableCell> </TableCell>
+              <TableCell> </TableCell>
+              <TableCell className="cost">dynamic price</TableCell>
+            </TableRow>
+
+            <TableRow>
+              <TableCell className="total-cost">Total Cost</TableCell>
+              <TableCell> </TableCell>
+              <TableCell> </TableCell>
+              <TableCell className="total-cost">total price</TableCell>
             </TableRow>
           </Table>
         </div>

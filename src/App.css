@@ -1,10 +1,16 @@
+html, body {
+    margin: 0;
+    height: 100%;
+    background: linear-gradient(to bottom, #ffffff 0%, #f8f8f8 27%, #e3e3e3 76%, #dbdbdb 100%);
+    font-family: 'PT Serif', serif;
+}
+
 .App {
     height: 50%;
-    width: 50%;
+    width: 45%;
     position: relative;
     top: 100px;
-    left: 100px;
-    /* margin: 0 auto; */
+    margin: 0 auto;
 }
 
 /* .App {
