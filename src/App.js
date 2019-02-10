@@ -1,22 +1,25 @@
 import React, { Component } from "react";
 import "./App.css";
-import Logo from "./logo.js";
-import Info from "./info.js";
+import Logo from "./logo";
+import Info from "./info";
+import Product from "./product";
+import Subtotal from "./subtotal";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="Logo-header">
-          <Logo />
-          <Info />
-        </header>
+        <Logo />
+        <Info />
+        <Product />
       </div>
     );
   }
 }
 
 export default App;
+
+// <Subtotal />;
 
 //
 // <img src={logo} className="App-logo" alt="logo" />

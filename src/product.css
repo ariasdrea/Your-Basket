@@ -1,0 +1,14 @@
+.product-table {
+    position: relative;
+    top: 50px;
+}
+
+.table-title {
+    font-size: 12px;
+    font-weight: bolder;
+    color: black;
+}
+
+.table-info {
+    font-size: 12px;
+}
