@@ -1,6 +1,12 @@
-.product-table {
+#product-div {
+    height: 80%;
+    width: 45%;
+    margin: 0 auto;
+}
+
+#product-table {
     position: relative;
-    top: 10px;
+    top: 100px;
 }
 
 .table-title {
@@ -13,13 +19,13 @@
     font-size: 12px;
 }
 
-input[type=number] {
+input[type="number"] {
     text-align: right;
     width: 40px;
 }
 
 #striped-row {
-    background-color: #DDDDDD
+    background-color: #dddddd;
 }
 
 .cost {

@@ -1,7 +1,13 @@
 #akqa-logo {
-    height: 15%;
-    width: 15%;
+    height: 8%;
+    width: 8%;
     position: relative;
-    left: 2%;
-    bottom: 5%;
+    left: 28%;
+    top: 80px;
 }
+
+/* height: 80%;
+width: 45%;
+position: relative;
+top: 60px;
+margin: 0 auto; */

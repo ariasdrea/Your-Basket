@@ -3,7 +3,7 @@ import "./info.css";
 
 export default function Info() {
   return (
-    <div className="basket-container">
+    <div id="basket-div">
       <h1 className="basket-title">Your Basket </h1>
       <p className="basket-info">
         Items you have added to your basket are shown below.

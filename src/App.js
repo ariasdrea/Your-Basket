@@ -23,9 +23,12 @@ export default class App extends Component {
 
         <div id="button-div">
           <button className="buy-btn" onClick={this.handleClick}>
-            Buy Now >>
+            Buy Now ≫
           </button>
         </div>
+        <footer>
+          <strong>© 2013 AKQA Ltd.</strong> Registered in England: 2964394
+        </footer>
       </div>
     );
   }

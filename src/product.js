@@ -20,8 +20,8 @@ export default class Product extends Component {
   render() {
     return (
       <div>
-        <div>
-          <Table className="product-table">
+        <div id="product-div">
+          <Table id="product-table">
             {/* Table Titles */}
             <TableRow>
               <TableCell className="table-title">Product</TableCell>
