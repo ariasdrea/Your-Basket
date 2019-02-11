@@ -10,6 +10,8 @@ export default class App extends Component {
     this.state = {};
   }
 
+  handleClick() {}
+
   render() {
     return (
       <div className="App">
@@ -17,6 +19,12 @@ export default class App extends Component {
           <Logo />
           <Info />
           <Product />
+        </div>
+
+        <div id="button-div">
+          <button className="buy-btn" onClick={this.handleClick}>
+            Buy Now >>
+          </button>
         </div>
       </div>
     );

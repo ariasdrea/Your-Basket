@@ -6,38 +6,23 @@ html, body {
 }
 
 .App {
-    height: 50%;
+    height: 80%;
     width: 45%;
     position: relative;
-    top: 100px;
+    top: 60px;
     margin: 0 auto;
 }
 
-/* .App {
-  text-align: center;
+.buy-btn {
+    position: relative;
+    top: 15px;
+    left: 60%;
+    height: 40px;
+    width: 100px;
+    border-radius: 10%;
+    font-size: 13px;
+    font-weight: bolder;
+    background-color: navy;
+    color: white;
+    box-shadow: .5px .5px grey
 }
-
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */

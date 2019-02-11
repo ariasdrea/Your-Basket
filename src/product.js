@@ -8,7 +8,14 @@ export default class Product extends Component {
   constructor(props) {
     super();
     this.state = {};
+
+    this.handleChange = this.handleChange.bind(this);
+    this.deleteQuantity = this.deleteQuantity.bind(this);
   }
+
+  handleChange() {}
+
+  deleteQuantity() {}
 
   render() {
     return (
@@ -42,7 +49,12 @@ export default class Product extends Component {
                 </form>
               </TableCell>
               <TableCell className="table-info">{this.price}</TableCell>
-              <IconButton className="delete-icon" aria-label="Delete">
+              {/* Delete Icon */}
+              <IconButton
+                className="delete-icon"
+                aria-label="Delete"
+                onClick={this.deleteQuantity}
+              >
                 <DeleteIcon />
               </IconButton>
             </TableRow>
@@ -66,7 +78,12 @@ export default class Product extends Component {
                 </form>
               </TableCell>
               <TableCell className="table-info">Varied Cost</TableCell>
-              <IconButton className="delete-icon" aria-label="Delete">
+              {/* Delete Icon */}
+              <IconButton
+                className="delete-icon"
+                aria-label="Delete"
+                onClick={this.deleteQuantity}
+              >
                 <DeleteIcon />
               </IconButton>
             </TableRow>
@@ -88,7 +105,12 @@ export default class Product extends Component {
                 </form>
               </TableCell>
               <TableCell className="table-info">Varied Cost</TableCell>
-              <IconButton className="delete-icon" aria-label="Delete">
+              {/* Delete Icon */}
+              <IconButton
+                className="delete-icon"
+                aria-label="Delete"
+                onClick={this.deleteQuantity}
+              >
                 <DeleteIcon />
               </IconButton>
             </TableRow>
