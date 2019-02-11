@@ -3,9 +3,13 @@ import "./App.css";
 import Logo from "./logo";
 import Info from "./info";
 import Product from "./product";
-// import Subtotal from "./subtotal";
 
-class App extends Component {
+export default class App extends Component {
+  constructor() {
+    super();
+    this.state = {};
+  }
+
   render() {
     return (
       <div className="App">
@@ -18,5 +22,3 @@ class App extends Component {
     );
   }
 }
-
-export default App;

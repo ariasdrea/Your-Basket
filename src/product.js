@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 // import { connect } from "react-redux";
-// import Subtotal from "./subtotal";
 import { Table, TableCell, TableRow, IconButton } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 import "./product.css";
 
 export default class Product extends Component {
-  constructor() {
+  constructor(props) {
     super();
     this.state = {};
   }
@@ -16,6 +15,7 @@ export default class Product extends Component {
       <div>
         <div>
           <Table className="product-table">
+            {/* Table Titles */}
             <TableRow>
               <TableCell className="table-title">Product</TableCell>
               <TableCell className="table-title">Price</TableCell>
@@ -23,6 +23,7 @@ export default class Product extends Component {
               <TableCell className="table-title">Cost</TableCell>
             </TableRow>
 
+            {/* Row for Cotton T-Shirt (Item #1) */}
             <TableRow>
               <TableCell className="table-info">
                 Cotton T-Shirt, Medium
@@ -40,12 +41,13 @@ export default class Product extends Component {
                   />
                 </form>
               </TableCell>
-              <TableCell className="table-info">Cost</TableCell>
+              <TableCell className="table-info">{this.price}</TableCell>
               <IconButton className="delete-icon" aria-label="Delete">
                 <DeleteIcon />
               </IconButton>
             </TableRow>
 
+            {/* Row for Baseball Cap (Item #2) */}
             <TableRow id="striped-row">
               <TableCell className="table-info">
                 Baseball Cap, One Size
@@ -69,6 +71,7 @@ export default class Product extends Component {
               </IconButton>
             </TableRow>
 
+            {/* Row for Swim Shorts (Item #3) */}
             <TableRow>
               <TableCell className="table-info">Swim Shorts, Medium</TableCell>
               <TableCell className="table-info">£3.99</TableCell>
@@ -90,26 +93,30 @@ export default class Product extends Component {
               </IconButton>
             </TableRow>
 
+            {/* This row adds a space */}
             <TableRow />
 
+            {/* SUBTOTAL ROW - Price changes depending on selection */}
             <TableRow>
               <TableCell className="cost"> Subtotal </TableCell>
-              <TableCell> </TableCell>
-              <TableCell> </TableCell>
+              <TableCell />
+              <TableCell />
               <TableCell className="cost">dynamic price</TableCell>
             </TableRow>
 
+            {/* VAT TAX ROW - Tax cost changes depending on selection */}
             <TableRow>
               <TableCell className="cost">VAT @ 20% </TableCell>
-              <TableCell> </TableCell>
-              <TableCell> </TableCell>
+              <TableCell />
+              <TableCell />
               <TableCell className="cost">dynamic price</TableCell>
             </TableRow>
 
+            {/* TOTAL COST ROW*/}
             <TableRow>
               <TableCell className="total-cost">Total Cost</TableCell>
-              <TableCell> </TableCell>
-              <TableCell> </TableCell>
+              <TableCell />
+              <TableCell />
               <TableCell className="total-cost">total price</TableCell>
             </TableRow>
           </Table>
@@ -124,38 +131,3 @@ export default class Product extends Component {
 // };
 //
 // export default connect(mapStateToProps)(Product);
-
-// <Table striped>
-//   <thead>
-//     <th>Product</th>
-//     <th>Price</th>
-//     <th>Qty</th>
-//     <th>Cost</th>
-//   </thead>
-//   <tbody>
-//     <tr>
-//       <td>Cotton T-Shirt, Medium</td>
-//       <td>£1.99</td>
-//       <td>
-//
-//         <input
-//
-//       </td>
-//       <td>viried cost</td>
-//     </tr>
-//
-//     <tr>
-//       <td>Baseball Cap, One Size</td>
-//       <td>£2.99</td>
-//       <td>input field</td>
-//       <td>viried cost</td>
-//     </tr>
-//
-//     <tr>
-//       <td>Swim Shorts, Medium</td>
-//       <td>£3.99</td>
-//       <td>input field</td>
-//       <td>viried cost</td>
-//     </tr>
-//   </tbody>
-// </Table>
