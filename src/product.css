@@ -12,25 +12,6 @@
     top: 100px;
 }
 
-.table-title {
-    font-size: 15px;
-    font-weight: bolder;
-    color: black;
-}
-
-.table-info {
-    font-size: 12px;
-}
-
-input[type="number"] {
-    text-align: right;
-    width: 40px;
-}
-
-#striped-row {
-    background-color: #dddddd;
-}
-
 .cost {
     color: grey;
 }

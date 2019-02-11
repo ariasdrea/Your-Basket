@@ -1,0 +1,24 @@
+.product-container {
+    position: relative;
+    top: 120px;
+}
+
+.table-title {
+    font-size: 15px;
+    color: black;
+    margin-right: 50px;
+    font-weight: bolder;
+}
+
+.table-info {
+    font-size: 14px;
+}
+
+input[type="number"] {
+    text-align: right;
+    width: 40px;
+}
+
+#striped-row {
+    background-color: #dddddd;
+}
