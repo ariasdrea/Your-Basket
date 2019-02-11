@@ -1,12 +1,18 @@
-html, body {
+html,
+body {
     margin: 0;
-    height: 100%;
-    background: linear-gradient(to bottom, #ffffff 0%, #f8f8f8 27%, #e3e3e3 76%, #dbdbdb 100%);
-    font-family: 'PT Serif', serif;
+    height: 100vh;
+    background: linear-gradient(to bottom,
+        #ffffff 0%,
+        #f8f8f8 27%,
+        #e3e3e3 76%,
+        #dbdbdb 100%);
+    font-family: "PT Serif", serif;
 }
 
 .App {
-    margin: 0 auto;
+    position: relative;
+    top: 10px;
 }
 
 .buy-btn {
@@ -20,7 +26,7 @@ html, body {
     font-weight: bolder;
     background-color: navy;
     color: white;
-    box-shadow: .5px .5px grey;
+    box-shadow: 0.5px 0.5px grey;
     cursor: pointer;
 }
 
