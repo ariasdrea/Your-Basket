@@ -38,10 +38,29 @@ export default class ProductList extends Component {
         }
       ]
     };
+    this.handleChange = this.handleChange.bind(this);
   }
 
+  // change the qty of the input in the state and update/reflect the cost
+  // make the state of that specific row change (how to change the cost for the input field that has a specific id)
   handleChange(e) {
-    console.log("e:", e);
+    let newItems = this.state.items.map(item => {
+      // utilizing the comparison operator because typeof e.target.id is a string
+      if (item.id == e.target.id) {
+        return {
+          id: item.id,
+          title: item.title,
+          price: item.price,
+          qty: parseInt(e.target.value),
+          cost: item.cost
+        };
+      } else {
+        return item;
+      }
+    });
+    this.setState({
+      items: newItems
+    });
   }
 
   render() {
@@ -53,6 +72,7 @@ export default class ProductList extends Component {
           <TableCell className="table-title">Qty</TableCell>
           <TableCell className="table-title">Cost</TableCell>
         </TableRow>
+
         {this.state.items.map((item, key) => {
           return (
             <TableRow>
@@ -62,6 +82,7 @@ export default class ProductList extends Component {
                 <form>
                   <input
                     className="quantity"
+                    id={item.id}
                     onChange={this.handleChange}
                     defaultValue={item.qty}
                     type="number"
@@ -70,7 +91,10 @@ export default class ProductList extends Component {
                   />
                 </form>
               </TableCell>
-              <TableCell className="table-info">£{item.cost()}</TableCell>
+              <TableCell className="table-info">
+                {/* utilizing toFixed method to round integer to 2 decimal places*/}
+                £{item.cost().toFixed(2)}
+              </TableCell>
               {/* Delete Icon */}
               <IconButton
                 className="delete-icon"

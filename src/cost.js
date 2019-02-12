@@ -6,7 +6,10 @@ export default class Cost extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+    this.calculateSubtotal = this.calculateSubtotal.bind(this);
   }
+
+  calculateSubtotal() {}
 
   render() {
     return (
@@ -19,7 +22,7 @@ export default class Cost extends Component {
           <TableCell className="cost">price</TableCell>
         </TableRow>
 
-        {/* VAT TAX ROW - Tax cost changes depending on selection */}
+        {/* VAT TAX ROW */}
         <TableRow>
           <TableCell className="cost">VAT @ 20% </TableCell>
           <TableCell />
@@ -28,7 +31,7 @@ export default class Cost extends Component {
           <TableCell className="cost"> price</TableCell>
         </TableRow>
 
-        {/* TOTAL COST ROW*/}
+        {/* TOTAL COST ROW */}
         <TableRow>
           <TableCell className="total-cost">Total Cost</TableCell>
           <TableCell />
