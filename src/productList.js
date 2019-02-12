@@ -44,22 +44,21 @@ export default class ProductList extends Component {
         return this.subtotal + this.vat();
       }
     };
+
     this.handleChange = this.handleChange.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.calculateSubtotal = this.calculateSubtotal.bind(this);
+    this.disableButton = this.disableButton.bind(this);
   }
 
   //Handles change in quantity input field by updating the state
   handleChange(e) {
     let newItems = this.state.items.map(item => {
-      // utilizing the comparison operator because typeof e.target.id is a string
+      // Utilizing the comparison operator because typeof e.target.id is a string
       if (item.id == e.target.id) {
         return {
-          id: item.id,
-          title: item.title,
-          price: item.price,
-          qty: parseInt(e.target.value),
-          cost: item.cost
+          ...item,
+          qty: parseInt(e.target.value)
         };
       } else {
         return item;
@@ -76,51 +75,47 @@ export default class ProductList extends Component {
   }
 
   handleDelete(e) {
-    console.log("e.currentTarget.id:", e.currentTarget.id);
-    console.log("typeof e.currentTarget.id:", typeof e.currentTarget.id);
-    let deleteQty = this.state.items.map(item => {
-      if (item.id == e.currentTarget.id) {
-        console.log("item", item);
-        return {
-          id: item.id,
-          title: item.title,
-          price: item.price,
-          cost: item.cost,
-          qty: 0
-        };
-      } else {
-        return item;
-      }
-    });
+    let deleteQty = this.state.items
+      .map(item => {
+        // Utilizing the comparison operator because typeof e.currentTarget.id is a string
+        if (item.id == e.currentTarget.id) {
+          return {
+            ...item,
+            qty: 0
+          };
+        } else {
+          return item;
+        }
+      })
+      .filter(item => item.qty > 0);
+
     this.setState(
       {
         items: deleteQty
       },
       () => {
         this.calculateSubtotal();
-        console.log("this.state:", this.state);
       }
     );
   }
 
+  // Automatically calculates the subtotal on page load
   componentDidMount() {
     return this.calculateSubtotal();
   }
 
   calculateSubtotal() {
-    // console.log("hello");
     let sub = 0;
     //loops through the state and adds each cost value to the sub variable which then gets added/updated to the subtotal state property
     let calculateSub = this.state.items.map(item => {
-      // console.log("this.state:", this.state);
-      // console.log("item.cost:", item.cost());
       return (sub += item.cost());
     });
-    // console.log("sub", sub);
     this.setState({
       subtotal: sub
     });
   }
+
+  disableButton() {}
 
   render() {
     return (
@@ -134,7 +129,7 @@ export default class ProductList extends Component {
         {/* Created a single table row that will dynamically generate additional rows as it loops through the state object*/}
         {this.state.items.map(item => {
           return (
-            <TableRow>
+            <TableRow key={item.id}>
               <TableCell className="table-info">{item.title}</TableCell>
               <TableCell className="table-info">£{item.price}</TableCell>
               <TableCell className="table-info">
@@ -199,6 +194,17 @@ export default class ProductList extends Component {
               £{this.state.total().toFixed(2)}
             </TableCell>
           </TableRow>
+        </div>
+
+        {/* BUY NOW BUTTON */}
+        <div id="button-div">
+          <button
+            disabled={!this.state.items.total}
+            className="buy-btn"
+            onClick={this.handleClick}
+          >
+            Buy Now ≫
+          </button>
         </div>
       </div>
     );

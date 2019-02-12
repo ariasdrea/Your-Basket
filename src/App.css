@@ -15,21 +15,6 @@ body {
     top: 10px;
 }
 
-.buy-btn {
-    position: relative;
-    top: 130px;
-    left: 50%;
-    height: 40px;
-    width: 100px;
-    border-radius: 10%;
-    font-size: 14px;
-    font-weight: bolder;
-    background-color: navy;
-    color: white;
-    box-shadow: 0.5px 0.5px grey;
-    cursor: pointer;
-}
-
 footer {
     position: fixed;
     height: 10px;

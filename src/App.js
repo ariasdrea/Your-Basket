@@ -10,8 +10,6 @@ export default class App extends Component {
     this.state = {};
   }
 
-  handleClick() {}
-
   render() {
     return (
       <div className="App">
@@ -21,11 +19,6 @@ export default class App extends Component {
           <Product />
         </div>
 
-        <div id="button-div">
-          <button className="buy-btn" onClick={this.handleClick}>
-            Buy Now ≫
-          </button>
-        </div>
         <footer>
           <strong>© 2013 AKQA Ltd.</strong> Registered in England: 2964394
         </footer>
