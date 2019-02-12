@@ -80,9 +80,27 @@ export default class ProductList extends Component {
     console.log("typeof e.currentTarget.id:", typeof e.currentTarget.id);
     let deleteQty = this.state.items.map(item => {
       if (item.id == e.currentTarget.id) {
-        console.log("hi");
+        console.log("item", item);
+        return {
+          id: item.id,
+          title: item.title,
+          price: item.price,
+          cost: item.cost,
+          qty: 0
+        };
+      } else {
+        return item;
       }
     });
+    this.setState(
+      {
+        items: deleteQty
+      },
+      () => {
+        this.calculateSubtotal();
+        console.log("this.state:", this.state);
+      }
+    );
   }
 
   componentDidMount() {
