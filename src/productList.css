@@ -19,10 +19,6 @@ input[type="number"] {
     width: 40px;
 }
 
-#striped-row {
-    background-color: #dddddd;
-}
-
 .total-cost {
     font-weight: bolder;
 }

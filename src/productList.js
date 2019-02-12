@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import DeleteIcon from "@material-ui/icons/Delete";
 import { TableCell, TableRow, IconButton } from "@material-ui/core";
+import DeleteIcon from "@material-ui/icons/Delete";
+import axios from "axios";
 import "./productList.css";
 
 export default class ProductList extends Component {
@@ -48,13 +49,13 @@ export default class ProductList extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.calculateSubtotal = this.calculateSubtotal.bind(this);
-    this.disableButton = this.disableButton.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   //Handles change in quantity input field by updating the state
   handleChange(e) {
     let newItems = this.state.items.map(item => {
-      // Utilizing the comparison operator because typeof e.target.id is a string
+      // Utilizing the comparison operator because typeof e.target.id is a string & parseInt to parse the string and return an integer
       if (item.id == e.target.id) {
         return {
           ...item,
@@ -115,11 +116,24 @@ export default class ProductList extends Component {
     });
   }
 
-  disableButton() {}
+  //Utilizing Axios to send product data to a REST API Endpoint
+  handleClick() {
+    axios
+      .post("www.test.com", {
+        data: this.state
+      })
+      .then(response => {
+        alert("Successful Axios Post Request");
+      })
+      .catch(err => {
+        console.log("err in handleClick POST:", err);
+      });
+  }
 
   render() {
     return (
       <div className="product-container">
+        {/* Row for Product Title*/}
         <TableRow>
           <TableCell className="table-title">Product</TableCell>
           <TableCell className="table-title">Price</TableCell>
@@ -197,10 +211,11 @@ export default class ProductList extends Component {
         </div>
 
         {/* BUY NOW BUTTON */}
+        {/* Disabled 'Buy Now' button when subtotal = 0 */}
         <div id="button-div">
           <button
-            disabled={!this.state.items.total}
             className="buy-btn"
+            disabled={!this.state.subtotal}
             onClick={this.handleClick}
           >
             Buy Now ≫
