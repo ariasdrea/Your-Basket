@@ -175,7 +175,7 @@ export default class ProductList extends Component {
             </TableRow>
           );
         })}
-        <div>
+        <div id="cost-div">
           {/*SUBTOTAL ROW*/}
           <TableRow>
             <TableCell className="cost">Subtotal</TableCell>

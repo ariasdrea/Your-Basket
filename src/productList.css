@@ -23,9 +23,14 @@ input[type="number"] {
     font-weight: bolder;
 }
 
+#cost-div {
+    position: relative;
+    top: 25px;
+}
+
 .buy-btn {
     position: relative;
-    top: 10px;
+    top: 30px;
     left: 45%;
     height: 40px;
     width: 100px;
