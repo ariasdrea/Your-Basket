@@ -22,3 +22,7 @@ input[type="number"] {
 #striped-row {
     background-color: #dddddd;
 }
+
+.total-cost {
+    font-weight: bolder;
+}

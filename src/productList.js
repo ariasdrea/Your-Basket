@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { TableCell, TableRow, IconButton } from "@material-ui/core";
-import Cost from "./cost";
 import "./productList.css";
 
 export default class ProductList extends Component {
@@ -36,13 +35,21 @@ export default class ProductList extends Component {
             return this.price * this.qty;
           }
         }
-      ]
+      ],
+      subtotal: 0,
+      vat: function() {
+        return this.subtotal * 0.2;
+      },
+      total: function() {
+        return this.subtotal + this.vat();
+      }
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
+    this.calculateSubtotal = this.calculateSubtotal.bind(this);
   }
 
-  // change the qty of the input in the state and update/reflect the cost
-  // make the state of that specific row change (how to change the cost for the input field that has a specific id)
+  //Handles change in quantity input field by updating the state
   handleChange(e) {
     let newItems = this.state.items.map(item => {
       // utilizing the comparison operator because typeof e.target.id is a string
@@ -58,8 +65,42 @@ export default class ProductList extends Component {
         return item;
       }
     });
+    this.setState(
+      {
+        items: newItems
+      },
+      () => {
+        this.calculateSubtotal();
+      }
+    );
+  }
+
+  handleDelete(e) {
+    console.log("e.currentTarget.id:", e.currentTarget.id);
+    console.log("typeof e.currentTarget.id:", typeof e.currentTarget.id);
+    let deleteQty = this.state.items.map(item => {
+      if (item.id == e.currentTarget.id) {
+        console.log("hi");
+      }
+    });
+  }
+
+  componentDidMount() {
+    return this.calculateSubtotal();
+  }
+
+  calculateSubtotal() {
+    // console.log("hello");
+    let sub = 0;
+    //loops through the state and adds each cost value to the sub variable which then gets added/updated to the subtotal state property
+    let calculateSub = this.state.items.map(item => {
+      // console.log("this.state:", this.state);
+      // console.log("item.cost:", item.cost());
+      return (sub += item.cost());
+    });
+    // console.log("sub", sub);
     this.setState({
-      items: newItems
+      subtotal: sub
     });
   }
 
@@ -72,8 +113,8 @@ export default class ProductList extends Component {
           <TableCell className="table-title">Qty</TableCell>
           <TableCell className="table-title">Cost</TableCell>
         </TableRow>
-
-        {this.state.items.map((item, key) => {
+        {/* Created a single table row that will dynamically generate additional rows as it loops through the state object*/}
+        {this.state.items.map(item => {
           return (
             <TableRow>
               <TableCell className="table-info">{item.title}</TableCell>
@@ -92,11 +133,12 @@ export default class ProductList extends Component {
                 </form>
               </TableCell>
               <TableCell className="table-info">
-                {/* utilizing toFixed method to round integer to 2 decimal places*/}
+                {/* Utilizing toFixed method to round integer to 2 decimal places*/}
                 £{item.cost().toFixed(2)}
               </TableCell>
               {/* Delete Icon */}
               <IconButton
+                id={item.id}
                 className="delete-icon"
                 aria-label="Delete"
                 onClick={this.handleDelete}
@@ -106,7 +148,40 @@ export default class ProductList extends Component {
             </TableRow>
           );
         })}
-        <Cost />
+        <div>
+          {/*SUBTOTAL ROW*/}
+          <TableRow>
+            <TableCell className="cost">Subtotal</TableCell>
+            <TableCell />
+            <TableCell />
+            <TableCell />
+            <TableCell className="cost">
+              £{this.state.subtotal.toFixed(2)}
+            </TableCell>
+          </TableRow>
+
+          {/* VAT TAX ROW */}
+          <TableRow>
+            <TableCell className="cost">VAT @ 20%</TableCell>
+            <TableCell />
+            <TableCell />
+            <TableCell />
+            <TableCell className="cost">
+              £{this.state.vat().toFixed(2)}
+            </TableCell>
+          </TableRow>
+
+          {/* TOTAL COST ROW */}
+          <TableRow>
+            <TableCell className="total-cost">Total Cost</TableCell>
+            <TableCell />
+            <TableCell />
+            <TableCell />
+            <TableCell className="total-cost">
+              £{this.state.total().toFixed(2)}
+            </TableCell>
+          </TableRow>
+        </div>
       </div>
     );
   }
